@@ -1,8 +1,8 @@
 #pragma once
 
 #include <iostream>
-#include "Envelope.h"
-#include "EnvelopeComparator.h"
+#include "Envelope.hpp"
+#include "EnvelopeComparator.hpp"
 
 class EnvelopeConsoleUI
 {

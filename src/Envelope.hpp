@@ -1,6 +1,6 @@
 #pragma once
 
-#include "InvalidEnvelopeSizeException.h"
+#include "InvalidEnvelopeSizeException.hpp"
 
 class Envelope
 {

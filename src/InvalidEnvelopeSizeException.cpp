@@ -1,4 +1,4 @@
-#include "InvalidEnvelopeSizeException.h"
+#include "InvalidEnvelopeSizeException.hpp"
 
 InvalidEnvelopeSizeException::InvalidEnvelopeSizeException()
 {

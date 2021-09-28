@@ -1,4 +1,4 @@
-#include "EnvelopeComparator.h"
+#include "EnvelopeComparator.hpp"
 
 bool EnvelopeComparator::CanOneContainAnother(Envelope* envelope_1, Envelope* envelope_2)
 {
