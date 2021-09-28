@@ -2,13 +2,13 @@
 
 InvalidEnvelopeSizeException::InvalidEnvelopeSizeException()
 {
-	strcpy_s(m_error_message, "No message!");
+	strcpy(m_error_message, "No message!");
 	m_size_value = 0;
 }
 
 InvalidEnvelopeSizeException::InvalidEnvelopeSizeException(const char* error_message, int size_value)
 {
-	strcpy_s(m_error_message, error_message);
+	strcpy(m_error_message, error_message);
 	m_size_value = size_value;
 }
 

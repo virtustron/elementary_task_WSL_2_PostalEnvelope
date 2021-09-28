@@ -7,20 +7,18 @@ bin = ./bin/
 #	g++ -o $(bin)main $(bin)main.o $(bin)ChessBoardConsoleUI.o
 all: main
 		
-main: $(bin)main.o $(bin)ChessBoardConsoleUI.o $(bin)ChessBoard.o $(bin)InvalidChessBoardSizeException.o
-	g++ -o $(bin)main $(bin)main.o $(bin)ChessBoardConsoleUI.o $(bin)ChessBoard.o $(bin)InvalidChessBoardSizeException.o
-	
-$(bin)main.o: $(bin)ChessBoardConsoleUI.o
-	g++ -o $(bin)main.o -c $(src)main.cpp 
+main: build_all
+	g++ -o $(bin)main $(bin)main.o $(bin)Envelope.o $(bin)EnvelopeComparator.o $(bin)EnvelopeConsoleUI.o $(bin)InvalidEnvelopeSizeException.o
 
-$(bin)ChessBoardConsoleUI.o: $(bin)ChessBoard.o $(bin)InvalidChessBoardSizeException.o
-	g++ -o $(bin)ChessBoardConsoleUI.o -c $(src)ChessBoardConsoleUI.cpp 
+build_all:
+	g++ -o $(bin)Envelope.o -c $(src)Envelope.cpp
+	g++ -o $(bin)EnvelopeComparator.o -c $(src)EnvelopeComparator.cpp
+	g++ -o $(bin)EnvelopeConsoleUI.o -c $(src)EnvelopeConsoleUI.cpp
+	g++ -o $(bin)InvalidEnvelopeSizeException.o -c $(src)InvalidEnvelopeSizeException.cpp
+	g++ -o $(bin)main.o -c $(src)main.cpp
 
-$(bin)ChessBoard.o: 
-	g++ -o $(bin)ChessBoard.o -c $(src)ChessBoard.cpp
 
-$(bin)InvalidChessBoardSizeException.o:
-	g++ -o $(bin)InvalidChessBoardSizeException.o -c $(src)InvalidChessBoardSizeException.cpp
+
 
 
 
