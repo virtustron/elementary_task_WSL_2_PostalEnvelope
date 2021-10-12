@@ -43,7 +43,7 @@ void EnvelopeConsoleUI::StartReadEnvelopeDialog(Envelope* envelope)
 	std::cout << "Enter first side of the envelope:\n";
 	std::cin >> side_size_1;
 
-	/*
+	
 	if (!std::cin)				// or if(cin.fail())
 	{
 		// user didn't input a number
@@ -54,12 +54,11 @@ void EnvelopeConsoleUI::StartReadEnvelopeDialog(Envelope* envelope)
 		std::cout << "Please enter a numeric value\n";
 		side_size_1 = 1;
 	}
-	*/
+	
 
 	std::cout << "Enter second side of the envelope:\n";
 	std::cin >> side_size_2;
 
-	/*
 	if (!std::cin)				// or if(cin.fail())
 	{
 		// user didn't input a number
@@ -70,7 +69,7 @@ void EnvelopeConsoleUI::StartReadEnvelopeDialog(Envelope* envelope)
 		std::cout << "Please enter a numeric value\n";
 		side_size_2 = 1;
 	}
-	*/
+	
 
 	try
 	{
