@@ -18,7 +18,7 @@ InvalidEnvelopeSizeException::InvalidEnvelopeSizeException(const char* error_mes
 	m_size_value = size_value;
 }
 
-char* InvalidEnvelopeSizeException::get_error_message()
+char* InvalidEnvelopeSizeException::get_error_message() const
 {
 	return m_error_message;
 }

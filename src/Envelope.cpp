@@ -21,6 +21,25 @@ double Envelope::get_short_side_size() const
 	return m_short_side_size;
 }
 
+void Envelope::set_side_sizes(char* size_1, char* size_2)
+{
+	double converted_size_1 = UNDEFINED_ENVELOPE_SIZE;
+	double converted_size_2 = UNDEFINED_ENVELOPE_SIZE;
+
+	converted_size_1 = atof(size_1);
+	if (converted_size_1 == ATOF_NO_CONVERSION_CAN_BE_PERFORMED)
+	{
+		throw InvalidEnvelopeSizeException("Conversion of envelope size #1 value can't be performed");
+	}
+
+	converted_size_2 = atof(size_2);
+	if (converted_size_2 == ATOF_NO_CONVERSION_CAN_BE_PERFORMED)
+	{
+		throw InvalidEnvelopeSizeException("Conversion of envelope size #2 value can't be performed");
+	}
+}
+
+
 void Envelope::set_side_sizes(double size_1, double size_2)
 {
 	if (!IsSizeValid(size_1))

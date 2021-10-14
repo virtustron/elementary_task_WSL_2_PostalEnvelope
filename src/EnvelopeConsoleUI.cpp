@@ -21,38 +21,29 @@ void EnvelopeConsoleUI::StartEnvelopeCompairingDialog(int argc, char* argv[])
 {
 	if (COMPLETE_ENVELOPES_PARAMETERS_COUNT == argc)
 	{
-
+		m_envelope_1->set_side_sizes(argv[1][0], argv[2][0]);
+		m_envelope_2->set_side_sizes(argv[3][0], argv[4][0]);
 	}
 	else
 	{
 		ShowProgramInstructions();
 	}
 	
-	
-	char user_answer[3];
+	std::string user_answer;
 	
 	do
 	{
-		try
-		{
-			m_envelope_1 = ReadEnvelopeParemeters();
-			m_envelope_2 = ReadEnvelopeParemeters();
-		}
-		catch(const std::exception& e)
-		{
-			std::cerr << e.what() << '\n';
-		}
-		
-		
+		m_envelope_1 = ReadEnvelopeParemeters();
+		m_envelope_2 = ReadEnvelopeParemeters();
 		
 		if (EnvelopeComparator::CanOneContainAnother(m_envelope_1, m_envelope_2))
-			std::cout << "One of these envelopes can contain another one\n";
+			std::cout << UI_ENVELOPE_CAN_CONTAIN << "\n";
 		else
-			std::cout << "No one of these envelopes can contain another one\n\n";
+			std::cout << UI_ENVELOPE_CAN_NOT_CONTAIN << "\n";
 		
-		std::cout << "If you want to compare the next envelopes, enter (y/yes):\n";
+		std::cout << UI_DO_YOU_WANT_TO_CONTINUE << "\n";
 		std::cin >> user_answer;
-	} while (strcmp(user_answer, "y") == 0 || strcmp(user_answer, "yes") == 0);
+	} while ((user_answer.compare("y") == 0) || (user_answer.compare("yes") == 0));
 
 
 

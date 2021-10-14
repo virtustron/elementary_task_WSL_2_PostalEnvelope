@@ -11,7 +11,7 @@ public:
 	InvalidEnvelopeSizeException(const char* error_message);
 	InvalidEnvelopeSizeException(const char* error_message, int size_value);
 
-	char* get_error_message();
+	char* get_error_message() const;
 	int get_size_value();
 
 private:

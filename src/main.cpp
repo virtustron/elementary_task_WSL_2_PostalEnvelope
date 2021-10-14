@@ -7,8 +7,16 @@
 int main(int argc, char* argv[])
 {
 	EnvelopeConsoleUI envelopes_console_ui;
-	envelopes_console_ui.StartEnvelopeCompairingDialog(argc, argv);
 	
+	try
+	{
+		envelopes_console_ui.StartEnvelopeCompairingDialog(argc, argv);
+	}
+	catch(const InvalidEnvelopeSizeException& e)
+	{
+		std::cout << e.get_error_message() << '\n';
+	}
+
 	return 0;
 }
 
