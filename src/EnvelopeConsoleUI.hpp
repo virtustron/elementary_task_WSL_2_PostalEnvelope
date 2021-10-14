@@ -4,6 +4,7 @@
 #include <limits>
 #include "Envelope.hpp"
 #include "EnvelopeComparator.hpp"
+#include "InvalidEnvelopeSizeException.hpp"
 
 class EnvelopeConsoleUI
 {
@@ -15,6 +16,7 @@ public:
 private:
 	Envelope *m_envelope_1;
 	Envelope *m_envelope_2;
-	void StartReadEnvelopeDialog(Envelope* envelope);
+	Envelope* ReadEnvelopeParemeters();
+	void ShowProgramInstructions();
 };
 

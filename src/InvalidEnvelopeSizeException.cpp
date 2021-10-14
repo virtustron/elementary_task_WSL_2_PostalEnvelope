@@ -6,6 +6,12 @@ InvalidEnvelopeSizeException::InvalidEnvelopeSizeException()
 	m_size_value = 0;
 }
 
+InvalidEnvelopeSizeException::InvalidEnvelopeSizeException(const char* error_message)
+{
+	strcpy(m_error_message, error_message);
+	m_size_value = UNDEFINED_ENVELOPE_SIZE;
+}
+
 InvalidEnvelopeSizeException::InvalidEnvelopeSizeException(const char* error_message, int size_value)
 {
 	strcpy(m_error_message, error_message);

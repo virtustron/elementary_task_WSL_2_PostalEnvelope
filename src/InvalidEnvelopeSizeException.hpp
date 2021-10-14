@@ -2,10 +2,13 @@
 
 #include <cstring>
 
+const int UNDEFINED_ENVELOPE_SIZE = -1;
+
 class InvalidEnvelopeSizeException
 {
 public:
 	InvalidEnvelopeSizeException();
+	InvalidEnvelopeSizeException(const char* error_message);
 	InvalidEnvelopeSizeException(const char* error_message, int size_value);
 
 	char* get_error_message();

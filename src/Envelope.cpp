@@ -11,12 +11,12 @@ Envelope::Envelope(double size_1, double size_2)
 	set_side_sizes(size_1, size_2);
 }
 
-double Envelope::get_long_side_size()
+double Envelope::get_long_side_size() const
 {
 	return m_long_side_size;
 }
 
-double Envelope::get_short_side_size()
+double Envelope::get_short_side_size() const 
 {
 	return m_short_side_size;
 }
