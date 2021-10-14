@@ -1,6 +1,6 @@
 #include "EnvelopeConsoleUI.hpp"
 
-const int COMPLETE_ENVELOPES_PARAMETERS_COUNT = 4;
+const int COMPLETE_ENVELOPES_PARAMETERS_COUNT = 5;   // 1 program name + 4 length values
 
 EnvelopeConsoleUI::EnvelopeConsoleUI()
 {
@@ -21,32 +21,34 @@ void EnvelopeConsoleUI::StartEnvelopeCompairingDialog(int argc, char* argv[])
 {
 	if (COMPLETE_ENVELOPES_PARAMETERS_COUNT == argc)
 	{
-		m_envelope_1->set_side_sizes(argv[1][0], argv[2][0]);
-		m_envelope_2->set_side_sizes(argv[3][0], argv[4][0]);
-	}
-	else
-	{
-		ShowProgramInstructions();
-	}
-	
-	std::string user_answer;
-	
-	do
-	{
-		m_envelope_1 = ReadEnvelopeParemeters();
-		m_envelope_2 = ReadEnvelopeParemeters();
-		
+		m_envelope_1->set_side_sizes(argv[1], argv[2]);
+		m_envelope_2->set_side_sizes(argv[3], argv[4]);
+
 		if (EnvelopeComparator::CanOneContainAnother(m_envelope_1, m_envelope_2))
 			std::cout << UI_ENVELOPE_CAN_CONTAIN << "\n";
 		else
 			std::cout << UI_ENVELOPE_CAN_NOT_CONTAIN << "\n";
+	}
+	else
+	{
+		ShowProgramInstructions();
 		
-		std::cout << UI_DO_YOU_WANT_TO_CONTINUE << "\n";
-		std::cin >> user_answer;
-	} while ((user_answer.compare("y") == 0) || (user_answer.compare("yes") == 0));
-
-
-
+		std::string user_answer;
+	
+		do
+		{
+			m_envelope_1 = ReadEnvelopeParemeters();
+			m_envelope_2 = ReadEnvelopeParemeters();
+		
+			if (EnvelopeComparator::CanOneContainAnother(m_envelope_1, m_envelope_2))
+				std::cout << UI_ENVELOPE_CAN_CONTAIN << "\n";
+			else
+				std::cout << UI_ENVELOPE_CAN_NOT_CONTAIN << "\n";
+		
+			std::cout << UI_DO_YOU_WANT_TO_CONTINUE << "\n";
+			std::cin >> user_answer;
+		} while ((user_answer.compare("y") == 0) || (user_answer.compare("yes") == 0));
+	}
 }
 
 Envelope* EnvelopeConsoleUI::ReadEnvelopeParemeters() 
@@ -90,7 +92,9 @@ Envelope* EnvelopeConsoleUI::ReadEnvelopeParemeters()
 
 void EnvelopeConsoleUI::ShowProgramInstructions()
 {
+	std::cout << "\n";
 	std::cout << "=== Envelope Analysis console application user manual ===\n";
 	std::cout << "1. Enter four numbers - sizes of two envelopes - one by one.\n";
 	std::cout << "2. After analysis result - enter \"y\" or \"yes\" to continue\n";
+	std::cout << "\n";
 }
