@@ -7,7 +7,7 @@
 int main(int argc, char* argv[])
 {
 	EnvelopeConsoleUI envelopes_console_ui;
-	envelopes_console_ui.StartEnvelopeCompairingDialog();
+	envelopes_console_ui.StartEnvelopeCompairingDialog(argc, argv);
 	
 	return 0;
 }

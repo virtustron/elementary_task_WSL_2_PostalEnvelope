@@ -14,8 +14,48 @@ EnvelopeConsoleUI::~EnvelopeConsoleUI()
 		delete m_envelope_2;
 }
 
-void EnvelopeConsoleUI::StartEnvelopeCompairingDialog()
+// 
+void EnvelopeConsoleUI::StartEnvelopeCompairingDialog(int argc, char* argv[])
 {
+	/*
+	if (argc == 3)
+	{
+		// TODO: add validation (isdigit and so on)
+		m_chessboard_height = atoi(argv[1]);
+		m_chessboard_width = atoi(argv[2]);
+	} 
+	else 
+	{
+		ShowProgramInstructions();
+		StartReadingChessboardParameters();
+	}
+
+	char** chess_board_string_presentation = new char*[m_chessboard_height];
+
+	for (int i = 0; i < m_chessboard_height; i++)
+		chess_board_string_presentation[i] = new char[m_chessboard_width];
+
+	try
+	{
+		ChessBoard chess_board(m_chessboard_height, m_chessboard_width);
+		chess_board.Present(chess_board_string_presentation);
+		WriteChessBoard(chess_board_string_presentation, m_chessboard_height, m_chessboard_width);
+	}
+	catch (InvalidChessBoardSizeException size_exception)
+	{
+		std::cout << size_exception.get_error_message() << " " << size_exception.get_size_value() << "\n";
+	}
+	*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	char user_answer[3];
 
 	m_envelope_1 = new Envelope();
@@ -38,7 +78,7 @@ void EnvelopeConsoleUI::StartEnvelopeCompairingDialog()
 
 void EnvelopeConsoleUI::StartReadEnvelopeDialog(Envelope* envelope) 
 {
-	int side_size_1, side_size_2;
+	double side_size_1, side_size_2;
 
 	std::cout << "Enter first side of the envelope:\n";
 	std::cin >> side_size_1;
@@ -52,7 +92,7 @@ void EnvelopeConsoleUI::StartReadEnvelopeDialog(Envelope* envelope)
 
 		// TODO: replace with throw-operator (and create responsible exception class)
 		std::cout << "Please enter a numeric value\n";
-		side_size_1 = 1;
+		side_size_1 = 1.0;
 	}
 	
 
@@ -67,7 +107,7 @@ void EnvelopeConsoleUI::StartReadEnvelopeDialog(Envelope* envelope)
 
 		// TODO: replace with throw-operator (and create responsible exception class)
 		std::cout << "Please enter a numeric value\n";
-		side_size_2 = 1;
+		side_size_2 = 1.0;
 	}
 	
 

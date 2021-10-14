@@ -10,7 +10,7 @@ class EnvelopeConsoleUI
 public:
 	EnvelopeConsoleUI();
 	~EnvelopeConsoleUI();
-	void StartEnvelopeCompairingDialog();
+	void StartEnvelopeCompairingDialog(int argc, char* argv[]);
 
 private:
 	Envelope *m_envelope_1;
