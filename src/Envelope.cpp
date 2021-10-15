@@ -1,15 +1,28 @@
 #include "Envelope.hpp"
 
+
+
 Envelope::Envelope()
 {
 	m_long_side_size = 1;
 	m_short_side_size = 1;
 }
 
+
+
+
 Envelope::Envelope(double size_1, double size_2)
 {
 	set_side_sizes(size_1, size_2);
 }
+
+
+
+
+
+
+
+
 
 double Envelope::get_long_side_size() const
 {
@@ -37,6 +50,8 @@ void Envelope::set_side_sizes(char* size_1, char* size_2)
 	{
 		throw InvalidEnvelopeSizeException("Conversion of envelope size #2 value can't be performed");
 	}
+
+	set_side_sizes(converted_size_1, converted_size_2);
 }
 
 
