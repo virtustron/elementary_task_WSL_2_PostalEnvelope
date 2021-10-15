@@ -7,6 +7,8 @@
 
 int main(int argc, char* argv[])
 {
+	
+	// Only for test - Should be exported to Rust
 	void* container = NULL;
 	
 	// 10.0, 10.0, 15.0, 5.0
@@ -27,8 +29,8 @@ int main(int argc, char* argv[])
 
 	}
 	
-	
 	/*
+	// Console interface
 	EnvelopeConsoleUI envelopes_console_ui;
 	
 	try
