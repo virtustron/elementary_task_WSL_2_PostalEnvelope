@@ -7,19 +7,26 @@
 
 int main(int argc, char* argv[])
 {
-	// 10.0, 10.0, 15.0, 5.0
-	void* p = InitializeEnvelopesContainer();
-	bool CanContain = CanOneEnvelopeContainAnother(p);
+	void* container = NULL;
 	
-	if (CanContain)
+	// 10.0, 10.0, 15.0, 5.0
+	if (InitializeEnvelopesContainer(&container) == INIT_SUCCEDED)
 	{
-		std::cout << "Can contain" << "\n";
-	}
-	else
-	{
-		std::cout << "Can not contain" << "\n";
+		bool can_contain;
+		
+		if (CanOneEnvelopeContainAnother(container, &can_contain));
+	
+		if (can_contain)
+		{
+			std::cout << "Can contain" << "\n";
+		}
+		else
+		{
+			std::cout << "Can not contain" << "\n";
+		}
 
 	}
+	
 	
 	/*
 	EnvelopeConsoleUI envelopes_console_ui;

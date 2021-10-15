@@ -3,19 +3,48 @@
 #include "EnvelopesContainer.hpp"
 #include "EnvelopeComparator.hpp"
 
-void* InitializeEnvelopesContainer()
+int InitializeEnvelopesContainer(void** container_to_initialize)
 {
-    EnvelopesContainer* envelopes_container = new EnvelopesContainer(10.0, 10.0, 15.0, 15.0);
+    // TODO try smart poriners
+    EnvelopesContainer* envelopes_container;
     
-    return (void*)envelopes_container;
+    try
+    {
+        envelopes_container = new EnvelopesContainer(10.0, 10.0, 15.0, 15.0);
+    }
+    catch(const InvalidEnvelopeSizeException& e)
+	{
+        if (envelopes_container != NULL)
+            delete envelopes_container;
+        
+        return INIT_INVALID_ENVELOPE_SIZE;
+	}
+    
+    *container_to_initialize = (void*)envelopes_container;
+    
+    return INIT_SUCCEDED;
 }
 
-bool CanOneEnvelopeContainAnother(void* container)
+int CanOneEnvelopeContainAnother(void* container, bool* can_contain)
 {
-    EnvelopesContainer* envelopes_container = (EnvelopesContainer*)container;
+    if (container == NULL)
+    {
+        return COMPARATION_CONTAINER_IS_NULL;
+    }
+    
+    try
+    {
+        EnvelopesContainer* envelopes_container = (EnvelopesContainer*)container;
 
-    Envelope* envelope_1 = envelopes_container->get_envelope_1();
-    Envelope* envelope_2 = envelopes_container->get_envelope_2();
+        Envelope* envelope_1 = envelopes_container->get_envelope_1();
+        Envelope* envelope_2 = envelopes_container->get_envelope_2();
 
-    return EnvelopeComparator::CanOneContainAnother(envelope_1, envelope_2);
+        *can_contain = EnvelopeComparator::CanOneContainAnother(envelope_1, envelope_2);
+    }
+    catch(const std::exception& e)
+    {
+        return COMPARATION_FAILED;
+    }
+
+    return COMPARATION_SUCCEDED;
 }
