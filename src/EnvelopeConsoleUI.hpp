@@ -6,6 +6,8 @@
 #include "EnvelopeComparator.hpp"
 #include "InvalidEnvelopeSizeException.hpp"
 
+const int COMPLETE_ENVELOPES_PARAMETERS_COUNT = 5;   // 1 program name + 4 length values
+
 const std::string UI_ENVELOPE_CAN_CONTAIN = "One of these envelopes can contain another one";
 const std::string UI_ENVELOPE_CAN_NOT_CONTAIN = "No one of these envelopes can contain another one";
 const std::string UI_DO_YOU_WANT_TO_CONTINUE = "If you want to compare the next envelopes, enter (y/yes):"; 

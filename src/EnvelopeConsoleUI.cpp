@@ -1,7 +1,5 @@
 #include "EnvelopeConsoleUI.hpp"
 
-const int COMPLETE_ENVELOPES_PARAMETERS_COUNT = 5;   // 1 program name + 4 length values
-
 EnvelopeConsoleUI::EnvelopeConsoleUI()
 {
 
