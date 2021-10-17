@@ -28,6 +28,11 @@ int main(int argc, char* argv[])
 		}
 
 	}
+
+	if (container != NULL)
+	{
+		delete container;
+	}
 	
 	/*
 	// Console interface

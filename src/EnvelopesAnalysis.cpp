@@ -19,9 +19,9 @@ int InitializeEnvelopesContainer(void** container_to_initialize)
         
         return INIT_INVALID_ENVELOPE_SIZE;
 	}
-    
+        
     *container_to_initialize = (void*)envelopes_container;
-    
+
     return INIT_SUCCEDED;
 }
 
