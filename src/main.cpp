@@ -16,17 +16,17 @@ int main(int argc, char* argv[])
 	{
 		bool can_contain;
 		
-		if (CanOneEnvelopeContainAnother(container, &can_contain));
-	
-		if (can_contain)
+		if (CanOneEnvelopeContainAnother(container, &can_contain) == COMPARATION_SUCCEDED)
 		{
-			std::cout << "Can contain" << "\n";
+			if (can_contain)
+			{
+				std::cout << "Can contain" << "\n";
+			}
+			else
+			{
+				std::cout << "Can not contain" << "\n";
+			}
 		}
-		else
-		{
-			std::cout << "Can not contain" << "\n";
-		}
-
 	}
 
 	if (container != NULL)
